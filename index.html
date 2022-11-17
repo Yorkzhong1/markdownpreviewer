@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="./js/marked.js"></script>
+
+    <script>
+
+      function updatePreview(){
+        let preElement=document.getElementById("preview")
+        let edittext=document.getElementById("editor").value
+        preElement.innerHTML=marked(edittext)
+
+      }
+
+      function setDefault(){
+        let defaultText=`
+# Welcome to my React Markdown Previewer!
+
+## This is a sub-heading...
+### And here's some other cool stuff:
+
+[Follow me on twitter](https://twitter.com/yorkzhong).
+
+<dl>
+  <dt> Definition List</dt>
+  <dd>Is something people use sometimes.</dd>
+</dl>
+
+This is \`code\` inside text.
+
+  - Example
+  - of
+  - List
+  - Items
+  - day
+
+>This is an example of block code
+\`\`\`
+function example(){
+  console.log("Multiline Code Block Exaple")
+}
+
+\`\`\`
+
+![example of image](https://alphadao-web.s3.ca-central-1.amazonaws.com/img/Rollup.png)
+
+**Exampole of bolded text**
+        `
+
+        document.getElementById("editor").value=defaultText
+        let preElement=document.getElementById("preview")
+        preElement.innerHTML=marked(defaultText)
+
+      }
+
+    </script>
+
+
+
+
+  </head>
+  <body onload="setDefault()">
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12 text-center text-white bg-success">
+          <h1>Markdown Previewer by Yuan Zhong</h1>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-6 bg-primary text-center my-3">
+          <h2 class="text-white">The Editor</h1>
+
+            <textarea id="editor" class="form-control" onkeyup="updatePreview()" style="height:90%" >
+
+            </textarea>
+
+        </div>
+
+        <div class="col-6 bg-primary text-center my-3">
+          <h2 class="text-white">The Previewer</h1>
+            <div class="bg-info">
+              <div id="preview">
+                <h1 class="text-white">Markdown Preview</h1>
+                <h2>by Yuan Zhong</h2>
+                <a href="https://twitter.com/yorkzhong">Follow me</a>
+
+            </div>
+
+
+
+
+
+
+
+            </div>
+
+
+
+        </div>
+      </div>
+
+
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+  </body>
+</html>
